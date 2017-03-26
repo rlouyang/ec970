@@ -39,7 +39,49 @@ label variable average_medicare_payment_amt "Average Medicare payment amount"
 
 eststo: reg average_medicare_payment_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
 
-estwide using RichardOuyang_aggregate1.tex, se nocons star label title("Average Medicare Payment Amount over Time, by Provider\label{table:aggregate1}") booktabs replace keep(*.year) b(a3) nonotes
+estwide using RichardOuyang_aggregate1.tex, se nocons star label title("Average Cost per Healthcare Service over Time, by Provider\label{table:aggregate1}") booktabs replace keep(*.year) b(a3) nonotes
+
+***** DRUG *****
+
+eststo clear
+
+gen avg_drug_medicare_allowed_amt = total_drug_medicare_allowed_amt / total_services
+label variable avg_drug_medicare_allowed_amt "Average drug Medicare allowed amount"
+
+eststo: reg avg_drug_medicare_allowed_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+gen avg_drug_submitted_chrg_amt = total_drug_submitted_chrg_amt / total_services
+label variable avg_drug_submitted_chrg_amt "Average drug submitted charge amount"
+
+eststo: reg avg_drug_submitted_chrg_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+gen avg_drug_medicare_payment_amt = total_drug_medicare_payment_amt / total_services
+label variable avg_drug_medicare_payment_amt "Average drug Medicare payment amount"
+
+eststo: reg avg_drug_medicare_payment_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+estwide using RichardOuyang_aggregatedrug.tex, se nocons star label title("Average Cost per Drug Service over Time, by Provider\label{table:aggregatedrug}") booktabs replace keep(*.year) b(a3) nonotes
+
+***** MEDICAL *****
+
+eststo clear
+
+gen avg_med_medicare_allowed_amt = total_med_medicare_allowed_amt / total_services
+label variable avg_med_medicare_allowed_amt "Average medical Medicare allowed amount"
+
+eststo: reg avg_med_medicare_allowed_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+gen avg_med_submitted_chrg_amt = total_med_submitted_chrg_amt / total_services
+label variable avg_med_submitted_chrg_amt "Average medical submitted charge amount"
+
+eststo: reg avg_med_submitted_chrg_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+gen avg_med_medicare_payment_amt = total_med_medicare_payment_amt / total_services
+label variable avg_med_medicare_payment_amt "Average medical Medicare payment amount"
+
+eststo: reg avg_med_medicare_payment_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_entity_code i.nppes_provider_gender i.nppes_provider_state i.year, r
+
+estwide using RichardOuyang_aggregatemed.tex, se nocons star label title("Average Cost per Medical Service over Time, by Provider\label{table:aggregatemed}") booktabs replace keep(*.year) b(a3) nonotes
 
 ***** END AGGREGATE *****
 
