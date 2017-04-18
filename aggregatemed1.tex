@@ -1,0 +1,46 @@
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{adjustbox}{max
+width={\textwidth},caption={Average Cost per Medical Service over Time, by Provider\label{table:aggregatemed1}},nofloat=table}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Average medical Medicare allowed amount}&\multicolumn{1}{c}{Average medical submitted charge amount}&\multicolumn{1}{c}{Average medical Medicare payment amount}\\
+\midrule
+Number of Services  &   -0.000169\sym{***}&   -0.000682\sym{***}&   -0.000131\sym{***}\\
+                    &    (-10.53)         &    (-10.42)         &    (-10.55)         \\
+\addlinespace
+Number of Unique Beneficiaries&     0.00227\sym{*}  &      0.0181\sym{***}&     0.00113         \\
+                    &      (2.19)         &      (5.06)         &      (1.23)         \\
+\addlinespace
+Average Age of Beneficiaries&      -0.452\sym{***}&      -4.404\sym{***}&      -0.259\sym{***}\\
+                    &    (-57.16)         &    (-94.55)         &    (-41.44)         \\
+\addlinespace
+Number of Female Beneficiaries&    -0.00203         &     -0.0238\sym{***}&   -0.000499         \\
+                    &     (-1.17)         &     (-3.99)         &     (-0.32)         \\
+\addlinespace
+Average Beneficiary HCC Risk Score&       20.77\sym{***}&       96.22\sym{***}&       17.24\sym{***}\\
+                    &    (209.94)         &    (167.10)         &    (218.84)         \\
+\addlinespace
+Female (provider gender)&           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+Male (provider gender)&       13.73\sym{***}&       41.63\sym{***}&       10.54\sym{***}\\
+                    &    (144.94)         &     (63.62)         &    (139.85)         \\
+\addlinespace
+Organization (provider gender)&       5.167\sym{***}&       65.78\sym{***}&       7.944\sym{***}\\
+                    &     (10.01)         &     (24.16)         &     (19.54)         \\
+\addlinespace
+2012                &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+2013                &       1.316\sym{***}&       15.54\sym{***}&     -0.0587         \\
+                    &      (9.94)         &     (18.88)         &     (-0.56)         \\
+\addlinespace
+2014                &       3.639\sym{***}&       29.45\sym{***}&       1.796\sym{***}\\
+                    &     (26.50)         &     (34.87)         &     (16.63)         \\
+\addlinespace
+State Effects       &         Yes         &         Yes         &         Yes         \\
+\midrule
+Observations        &     2293665         &     2293665         &     2293665         \\
+\bottomrule
+\end{tabular}\end{adjustbox}

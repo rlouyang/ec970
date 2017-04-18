@@ -1,0 +1,48 @@
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{adjustbox}{max
+width={\textwidth},caption={Average Medicare Payment Amount over Time, by Procedure Type per Provider\label{table:PUF1}},nofloat=table}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Average Medicare allowed amount}&\multicolumn{1}{c}{Average submitted charge amount}&\multicolumn{1}{c}{Average Medicare payment amount}\\
+\midrule
+Services provided   &   -0.000454\sym{***}&    -0.00103\sym{***}&   -0.000351\sym{***}\\
+                    &     (-9.41)         &     (-9.49)         &     (-9.43)         \\
+\addlinespace
+Distinct Medicare beneficiaries&   -0.000888\sym{***}&    -0.00369\sym{***}&   -0.000688\sym{***}\\
+                    &     (-8.43)         &    (-10.13)         &     (-7.66)         \\
+\addlinespace
+Distinct Medicare beneficiary/per day services&    0.000359\sym{***}&    0.000850\sym{***}&    0.000260\sym{***}\\
+                    &      (5.07)         &      (4.11)         &      (4.40)         \\
+\addlinespace
+Facility (place of service)&           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+Office (place of service)&      -42.20\sym{***}&      -240.7\sym{***}&      -34.15\sym{***}\\
+                    &   (-383.53)         &   (-520.76)         &   (-396.24)         \\
+\addlinespace
+Female (provider gender)&           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+Male (provider gender)&       5.098\sym{***}&       22.15\sym{***}&       3.968\sym{***}\\
+                    &     (82.89)         &     (92.41)         &     (82.47)         \\
+\addlinespace
+Organization (provider gender)&       17.62\sym{***}&       57.88\sym{***}&       14.08\sym{***}\\
+                    &      (5.03)         &      (6.77)         &      (5.13)         \\
+\addlinespace
+2012                &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+2013                &       0.995\sym{***}&       11.30\sym{***}&      -0.474\sym{***}\\
+                    &     (10.83)         &     (32.38)         &     (-6.57)         \\
+\addlinespace
+2014                &       2.917\sym{***}&       21.37\sym{***}&       0.895\sym{***}\\
+                    &     (30.71)         &     (59.22)         &     (12.02)         \\
+\addlinespace
+State Effects       &         Yes         &         Yes         &         Yes         \\
+\addlinespace
+Provider Type Effects &         Yes         &         Yes         &         Yes         \\
+\midrule
+Observations        &    27744016         &    27744016         &    27744016         \\
+\bottomrule
+\end{tabular}\end{adjustbox}
