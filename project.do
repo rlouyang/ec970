@@ -97,6 +97,16 @@ eststo: reg avg_med_medicare_payment_amt i.nppes_provider_state `x_vars', r
 
 estwide using aggregatemed1.tex, nocons star label title("Average Cost per Medical Service over Time, by Provider\label{table:aggregatemed1}") booktabs replace b(a3) nonotes indicate(State Effects = *.nppes_provider_state)
 
+***** SUMMARY STATISTICS *****
+
+eststo clear
+
+bysort year: eststo: estpost sum average_medicare_allowed_amt average_submitted_chrg_amt average_medicare_payment_amt avg_drug_medicare_allowed_amt avg_drug_submitted_chrg_amt avg_drug_medicare_payment_amt avg_med_medicare_allowed_amt avg_med_submitted_chrg_amt avg_med_medicare_payment_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score 
+
+eststo: estpost sum average_medicare_allowed_amt average_submitted_chrg_amt average_medicare_payment_amt avg_drug_medicare_allowed_amt avg_drug_submitted_chrg_amt avg_drug_medicare_payment_amt avg_med_medicare_allowed_amt avg_med_submitted_chrg_amt avg_med_medicare_payment_amt total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score 
+
+estwide using aggregatesum.tex, main(mean) aux(sd) booktabs label title("Summary Statistics, Aggregate Table\label{table:aggregatesum}") mtitle("2012" "2013" "2014" "Overall") nonotes replace
+
 ***** END AGGREGATE *****
 
 ***** PUF *****
@@ -123,6 +133,16 @@ eststo: reg average_submitted_chrg_amt i.nppes_provider_state `x_vars', r
 eststo: reg average_medicare_payment_amt i.nppes_provider_state `x_vars', r
 
 estwide using PUF1.tex, nocons star label title("Average Medicare Payment Amount over Time, by Procedure Type per Provider\label{table:PUF1}") booktabs replace b(a3) nonotes indicate("State Effects = *.nppes_provider_state" "Provider Type Effects = *.provider_type")
+
+***** SUMMARY STATISTICS *****
+
+eststo clear
+
+bysort year: eststo: estpost sum average_medicare_allowed_amt average_submitted_chrg_amt average_medicare_payment_amt line_srvc_cnt bene_unique_cnt bene_day_srvc_cnt
+
+eststo: estpost sum average_medicare_allowed_amt average_submitted_chrg_amt average_medicare_payment_amt line_srvc_cnt bene_unique_cnt bene_day_srvc_cnt
+
+estwide using PUFsum.tex, main(mean) aux(sd) booktabs label title("Summary Statistics, Public Use File\label{table:PUFsum}") mtitle("2012" "2013" "2014" "Overall") nonotes replace
 
 * eststo: reg average_medicare_allowed_amt `x_vars', r
 
