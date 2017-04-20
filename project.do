@@ -55,19 +55,19 @@ eststo clear
 gen avg_drug_medicare_allowed_amt = total_drug_medicare_allowed_amt / total_services
 label variable avg_drug_medicare_allowed_amt "Average drug Medicare allowed amount"
 
-eststo: reg avg_drug_medicare_allowed_amt i.nppes_provider_state `x_vars', r
+eststo: reg avg_drug_medicare_allowed_amt i.nppes_provider_state `x_vars' if avg_drug_medicare_allowed_amt != 0, r
 * eststo: reg avg_drug_medicare_allowed_amt `x_vars', r
 
 gen avg_drug_submitted_chrg_amt = total_drug_submitted_chrg_amt / total_services
 label variable avg_drug_submitted_chrg_amt "Average drug submitted charge amount"
 
-eststo: reg avg_drug_submitted_chrg_amt i.nppes_provider_state `x_vars', r
+eststo: reg avg_drug_submitted_chrg_amt i.nppes_provider_state `x_vars' if avg_drug_submitted_chrg_amt != 0, r
 * eststo: reg avg_drug_submitted_chrg_amt `x_vars', r
 
 gen avg_drug_medicare_payment_amt = total_drug_medicare_payment_amt / total_services
 label variable avg_drug_medicare_payment_amt "Average drug Medicare payment amount"
 
-eststo: reg avg_drug_medicare_payment_amt i.nppes_provider_state `x_vars', r
+eststo: reg avg_drug_medicare_payment_amt i.nppes_provider_state `x_vars' if avg_drug_medicare_payment_amt != 0, r
 * eststo: reg avg_drug_medicare_payment_amt `x_vars', r
 
 estwide using aggregatedrug1.tex, nocons star label title("Average Cost per Drug Service over Time, by Provider\label{table:aggregatedrug1}") booktabs replace b(a3) nonotes indicate(State Effects = *.nppes_provider_state)
