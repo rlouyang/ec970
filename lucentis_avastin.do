@@ -29,12 +29,19 @@ bysort hcpcs_code: eststo: estpost sum line_srvc_cnt bene_unique_cnt bene_day_sr
 
 estwide using lucentisavastinsum.tex, main(mean) aux(sd) booktabs label title("Summary Statistics, Lucentis and Avastin\label{table:lucentisavastinsum}") mtitle("Lucentis 2012" "Lucentis 2013" "Lucentis 2014" "Avastin 2012" "Avastin 2013" "Avastin 2014") nonotes replace
 
+drop provider_type *_amt
+
 collapse (sum) line_srvc_cnt bene_unique_cnt bene_day_srvc_cnt, by(npi hcpcs_code year2)
 
 reshape wide line_srvc_cnt bene_unique_cnt bene_day_srvc_cnt, i(npi hcpcs_code) j(year2) string
 
 * replace all missing values with 0
 mvencode _all, mv(0)
+
+forvalues i = 2012/2014 {
+    gen ispositive`i' = bene_unique_cnt`i' > 0
+}
+
 
 * useful
 * contract hcpcs_code year
