@@ -22,6 +22,8 @@ log using project.log, replace
 
 use aggregate, clear
 
+* sample 50
+
 do fix_provider_gender.do
 
 local x_vars total_services total_unique_benes beneficiary_average_age beneficiary_female_count beneficiary_average_risk_score i.nppes_provider_gender i.year
@@ -112,6 +114,8 @@ estwide using aggregatesum.tex, main(mean) aux(sd) booktabs label title("Summary
 ***** PUF *****
 
 use PUF, clear
+
+* sample 50
 
 do fix_provider_gender.do
 
